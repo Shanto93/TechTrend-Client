@@ -1,0 +1,29 @@
+{
+    "brands": [
+      {
+        "name": "Apple",
+        "image": "https://example.com/apple_logo.png"
+      },
+      {
+        "name": "Samsung",
+        "image": "https://example.com/samsung_logo.png"
+      },
+      {
+        "name": "Sony",
+        "image": "https://example.com/sony_logo.png"
+      },
+      {
+        "name": "Google",
+        "image": "https://example.com/google_logo.png"
+      },
+      {
+        "name": "Oppo",
+        "image": "https://example.com/oppo_logo.png"
+      },
+      {
+        "name": "Intel",
+        "image": "https://example.com/intel_logo.png"
+      }
+    ]
+  }
+  
