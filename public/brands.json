@@ -1,29 +1,33 @@
-{
-    "brands": [
+[
       {
+        "id": 1,
         "name": "Apple",
-        "image": "https://example.com/apple_logo.png"
+        "image": "https://i.postimg.cc/N0BDsgL0/Apple.jpg"
       },
       {
+        "id": 2,
         "name": "Samsung",
-        "image": "https://example.com/samsung_logo.png"
+        "image": "https://i.postimg.cc/bJ24byHj/Samsung.jpg"
       },
       {
+        "id": 3,
         "name": "Sony",
-        "image": "https://example.com/sony_logo.png"
+        "image": "https://i.postimg.cc/ydPcL9Th/Sony.jpg"
       },
       {
+        "id": 4,
         "name": "Google",
-        "image": "https://example.com/google_logo.png"
+        "image": "https://i.postimg.cc/C55BJ25Y/Google.jpg"
       },
       {
+        "id": 5,
         "name": "Oppo",
-        "image": "https://example.com/oppo_logo.png"
+        "image": "https://i.postimg.cc/zX9bS0rZ/Oppo.jpg"
       },
       {
+        "id": 6,
         "name": "Intel",
-        "image": "https://example.com/intel_logo.png"
+        "image": "https://i.postimg.cc/nL1XxxQp/Intel.jpg"
       }
     ]
-  }
   
