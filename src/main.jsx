@@ -10,6 +10,8 @@ import Home from './components/Home';
 import AddProduct from './components/AddProduct';
 import MyCart from './components/MyCart';
 import Login from './components/Login';
+import AvailableBrandDetails from './components/AvailableBrandDetails';
+import AuthProvider from './firebase/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -33,12 +35,18 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login></Login>,
       },
+      {
+        path: '/home/:id',
+        element: <AvailableBrandDetails></AvailableBrandDetails>,
+      }
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
