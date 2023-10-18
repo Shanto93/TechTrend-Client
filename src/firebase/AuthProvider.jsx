@@ -7,11 +7,12 @@ const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
     
-    // const userCreate = () => {
+    const userCreate = (email, password) => {
+        return createUs
 
-    // }
+    }
     const AuthInfo = {
-        // userCreate,
+        userCreate,
     }
     return (
         <AuthContext.Provider value={AuthInfo}>

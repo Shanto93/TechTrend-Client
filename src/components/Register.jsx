@@ -1,8 +1,7 @@
-import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
-    const handleLogin = e => {
+const Register = () => {
+    const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.email.value;
@@ -16,7 +15,7 @@ const Login = () => {
                     <h1 className="text-5xl font-bold">Login now!</h1>
                 </div>
                 <div className="card flex-shrink-0 md:w-96 max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleLogin} className="card-body">
+                    <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -32,15 +31,12 @@ const Login = () => {
                         <div className="form-control">
                             <button className="btn btn-primary mt-2">Login</button>
                         </div>
-                        <p className='text-center'>Do not have account?Please <Link to='/register' className='underline text-blue-600'>register</Link> </p>
+                        <p className='text-center'>Already have account?Please <Link to='/login' className='underline text-blue-600'>Login</Link> </p>
                     </form>
-                    <button className="btn btn-primary mx-8 mb-5">
-                        <FcGoogle className='text-2xl'></FcGoogle>Google Login
-                    </button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Register;

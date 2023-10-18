@@ -12,6 +12,7 @@ import MyCart from './components/MyCart';
 import Login from './components/Login';
 import AvailableBrandDetails from './components/AvailableBrandDetails';
 import AuthProvider from './firebase/AuthProvider';
+import Register from './components/Register';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>,
+      },
+      {
+        path:'/register',
+        element:<Register></Register>,
       },
       {
         path: '/home/:id',
