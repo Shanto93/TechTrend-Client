@@ -1,22 +1,60 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../firebase/AuthProvider';
+import Swal from 'sweetalert2'
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, password);
 
+        // eslint-disable-next-line no-constant-condition
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Minimum eight characters, at least one letter and one number',
+                footer: '<a href="">Why do I have this issue?</a>'
+            })
+        }
+
         // Create User
         createUser(email, password)
-        .then(result => result.user)
-        .catch(error => {
-            console.error(error);
-        })
+            .then(result => {
+                result.user;
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your account has been registered Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                // update profile
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo
+                })
+                    .then()
+                    .catch()
+                form.reset();
+            })
+            .catch(error => {
+                console.error(error);
+
+                return Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'auth/email-already-in-use',
+                })
+
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -26,6 +64,18 @@ const Register = () => {
                 </div>
                 <div className="card flex-shrink-0 md:w-96 max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleRegister} className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Image URL</span>
+                            </label>
+                            <input type="text" name="photo" placeholder="Image URL" className="input input-bordered" required />
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>

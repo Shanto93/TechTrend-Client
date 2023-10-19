@@ -13,6 +13,7 @@ import Login from './components/Login';
 import AvailableBrandDetails from './components/AvailableBrandDetails';
 import AuthProvider from './firebase/AuthProvider';
 import Register from './components/Register';
+import PrivateRoute from './components/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/addProduct',
-        element: <AddProduct></AddProduct>,
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
       },
       {
         path: '/myCart',
-        element: <MyCart></MyCart>,
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
       },
       {
         path: '/login',
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/home/:id',
-        element: <AvailableBrandDetails></AvailableBrandDetails>,
+        element: <PrivateRoute><AvailableBrandDetails></AvailableBrandDetails></PrivateRoute>,
       }
     ]
   },
