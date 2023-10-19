@@ -14,6 +14,8 @@ import AvailableBrandDetails from './components/AvailableBrandDetails';
 import AuthProvider from './firebase/AuthProvider';
 import Register from './components/Register';
 import PrivateRoute from './components/PrivateRoute';
+import Products from './components/Products';
+import ProductDetails from './components/ProductDetails';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +25,17 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('/brands.json'),
+        loader: () => fetch('http://localhost:5000/brands'),
+      },
+      {
+        path:'/products/:brand_name',
+        element:<Products></Products>,
+        loader: () => fetch('http://localhost:5000/product'),
+      },
+      {
+        path:'/details/:_id',
+        element:<ProductDetails></ProductDetails>,
+        loader:() => fetch(`http://localhost:5000/product`),
       },
       {
         path: '/addProduct',

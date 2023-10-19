@@ -9,13 +9,14 @@ const AvailableBrands = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 {
-                    brands.map(brand => <Link to={`/home/${brand.id}`} key={brand.id}>
+                   
+                    brands.map(brand => <Link to={`/products/${brand.brand_name}`} key={brand.id}>
                         <div className="card bg-[#e74c3c] shadow-xl">
                             <figure className=" ">
                                 <img src={brand.image} alt="Shoes" className=" h-52 w-full" />
                             </figure>
                             <div className="card-body items-center text-center">
-                                <h2 className="card-title text-white">{brand.name} </h2>
+                                <h2 className="card-title text-white">{brand.brand_name} </h2>
                             </div>
                         </div>
                     </Link>)
