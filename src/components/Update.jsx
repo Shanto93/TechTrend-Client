@@ -1,7 +1,8 @@
-import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 
-const AddProduct = () => {
-    const handleAddProduct = e => {
+const Update = () => {
+    const loaderProduct = useLoaderData();
+    const handleUpdateProduct = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -11,53 +12,45 @@ const AddProduct = () => {
         const brand_name = form.brand_name.value;
         const description = form.description.value;
         const rating = form.rating.value;
-        const newProduct = {name, photo, category, price, brand_name, description, rating};
-        // console.log(newProduct);
+        const newProduct = { name, photo, category, price, brand_name, description, rating };
+        console.log(newProduct);
 
-        // Send data to server
-        fetch('http://localhost:5000/product', {
-            method:'POST',
+        fetch(`http://localhost:5000/product/${loaderProduct._id}`,{
+            method:'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newProduct)
+            body: JSON.stringify(newProduct),
         })
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            if(data.insertedId){
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Data Inserted Successfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                  form.reset();
+            if(data.modifiedCount > 0){
+                alert("Data updated");
             }
         })
         
     }
     return (
         <div className="min-h-screen flex w-full justify-center">
-            
-            <form onSubmit={handleAddProduct} className="flex justify-center items-center w-full">
+
+            <form onSubmit={handleUpdateProduct} className="flex justify-center items-center w-full">
                 <div className="w-3/4">
-                <h2 className="text-center text-4xl font-bold mb-5">Pr<span className="text-[#e74c3c]">odu</span>ct In<span className="text-[#e67e22]">fo</span>rm<span className="text-[#e74c3c]">ati</span>on</h2>
+                    <h2 className="text-center text-4xl font-bold mb-5">Pr<span className="text-[#e74c3c]">odu</span>ct In<span className="text-[#e67e22]">fo</span>rm<span className="text-[#e74c3c]">ati</span>on</h2>
                     {/* Name and Image Column */}
                     <div className="md:flex gap-5">
                         <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
+                            <input type="text" name="name" defaultValue={loaderProduct?.name} className="input input-bordered" required />
                         </div>
 
                         <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Image URL</span>
                             </label>
-                            <input type="text" name="photo" placeholder="Image URL" className="input input-bordered" required />
+                            <input type="text" name="photo" defaultValue={loaderProduct?.photo} className="input input-bordered" required />
                         </div>
                     </div>
 
@@ -68,14 +61,13 @@ const AddProduct = () => {
                             <label className="label">
                                 <span className="label-text">Select Category</span>
                             </label>
-                            <select className="select w-full select-bordered" name="category">
+                            <select className="select w-full select-bordered" name="category" defaultValue={loaderProduct?.category}>
                                 <option disabled selected>Phone</option>
                                 <option>Computer</option>
                                 <option>Headphone</option>
                                 <option>PowerBank</option>
                                 <option>Processor</option>
                                 <option>Phone</option>
-                                <option>Pad</option>
                             </select>
                         </div>
 
@@ -83,16 +75,16 @@ const AddProduct = () => {
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input type="text" name="price" placeholder="Price" className="input w-full input-bordered" required />
+                            <input type="text" name="price" defaultValue={loaderProduct?.price} className="input w-full input-bordered" required />
                         </div>
                     </div>
                     {/* Short Description and Rating Column */}
                     <div className="md:flex gap-5">
-                    <div className=" md:w-1/2">
+                        <div className=" md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Brand Name</span>
                             </label>
-                            <select className="select w-full select-bordered" name="brand_name">
+                            <select className="select w-full select-bordered" name="brand_name" defaultValue={loaderProduct?.brand_name}>
                                 <option disabled selected>Apple</option>
                                 <option>Samsung</option>
                                 <option>Sony</option>
@@ -102,12 +94,12 @@ const AddProduct = () => {
                                 <option>Apple</option>
                             </select>
                         </div>
-                        
+
                         <div className=" md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
-                            <select className="select w-full select-bordered" name="rating">
+                            <select className="select w-full select-bordered" name="rating" defaultValue={loaderProduct?.rating}>
                                 <option disabled selected>5</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -118,12 +110,12 @@ const AddProduct = () => {
                         </div>
                     </div>
                     <div className="form-control md:w-full">
-                            <label className="label">
-                                <span className="label-text">Description</span>
-                            </label>
-                            <input type="text" name="description" placeholder="Write short description" className="input input-bordered" required />
-                        </div>
-                    <button className="btn w-full mt-7 bg-[#e74c3c] text-white font-bold hover:bg-[#e67e22]">Add Information</button>
+                        <label className="label">
+                            <span className="label-text">Description</span>
+                        </label>
+                        <input type="text" name="description" defaultValue={loaderProduct?.description} className="input input-bordered" required />
+                    </div>
+                    <button className="btn w-full mt-7 bg-[#e74c3c] text-white font-bold hover:bg-[#e67e22]">Update Information</button>
                 </div>
 
             </form>
@@ -131,4 +123,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default Update;

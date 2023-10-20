@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import ProductCart from "./ProductCart";
 
 const Products = () => {
@@ -8,13 +8,11 @@ const Products = () => {
     console.log(brand_name);
     return (
         <div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 {
                     remaining.map(product =>
-                        <Link to={`/details/${product._id}`} key={product._id}>
-                            <ProductCart product={product} ></ProductCart>
-                        </Link>)
+                        <ProductCart key={product._id} product={product} ></ProductCart>
+                    )
                 }
             </div>
         </div>

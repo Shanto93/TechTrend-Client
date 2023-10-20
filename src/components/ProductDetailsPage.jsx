@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 const ProductDetailsPage = ({ prod }) => {
-    const { category, name, photo, price, rating, brand_name, description
+    const { category, name, photo, price, brand_name, description
     } = prod;
     return (
         <div>
-            <img className=" w-full mb-5" src={photo} alt="" />
+            <div className="flex justify-center">
+                <img className=" mb-5 w-96" src={photo} alt="" />
+            </div>
             <div className="space-y-4">
                 <h2 className="text-xl"> <span className="text-2xl font-bold">Product Name:</span> {name} </h2>
                 <h2 className="text-xl"> <span className="text-xl font-bold">Brand:</span> {brand_name} </h2>

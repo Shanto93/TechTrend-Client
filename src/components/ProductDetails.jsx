@@ -9,9 +9,8 @@ const ProductDetails = () => {
     // console.log(single);
     return (
         <div>
-            
             {
-                product.map(prod => <ProductDetailsPage prod={prod} key={prod._id}></ProductDetailsPage>)
+                product.map(prod => <ProductDetailsPage prod={prod} key={prod._id}></ProductDetailsPage>) 
             }
             
         </div>
