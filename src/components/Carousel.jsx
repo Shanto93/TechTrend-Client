@@ -6,12 +6,6 @@ const Carousel = () => {
                     <div className="carousel-item h-full">
                         <img src="https://i.postimg.cc/zXQ7mnTf/Samsung-Galaxy-A51.jpg" />
                     </div>
-                    <div className="carousel-item h-full">
-                        <img src="https://i.postimg.cc/nzVB9zq5/Samsung-Galaxy-Note-10.jpg" />
-                    </div>
-                    <div className="carousel-item h-full">
-                        <img src="https://i.postimg.cc/RCyX3kZR/Samsung-Galaxy-Note-20.jpg" />
-                    </div>
                 </div>
             </div>
         </div>

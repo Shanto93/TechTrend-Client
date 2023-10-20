@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
     const loaderProduct = useLoaderData();
@@ -26,7 +27,13 @@ const Update = () => {
         .then(data => {
             console.log(data);
             if(data.modifiedCount > 0){
-                alert("Data updated");
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Successfully data updated',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             }
         })
         
@@ -65,7 +72,7 @@ const Update = () => {
                                 <option disabled selected>Phone</option>
                                 <option>Computer</option>
                                 <option>Headphone</option>
-                                <option>PowerBank</option>
+                                <option>Tablet</option>
                                 <option>Processor</option>
                                 <option>Phone</option>
                             </select>
@@ -88,7 +95,7 @@ const Update = () => {
                                 <option disabled selected>Apple</option>
                                 <option>Samsung</option>
                                 <option>Sony</option>
-                                <option>Google</option>
+                                <option>Realme</option>
                                 <option>Oppo</option>
                                 <option>Intel</option>
                                 <option>Apple</option>

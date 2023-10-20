@@ -10,7 +10,7 @@ import Home from './components/Home';
 import AddProduct from './components/AddProduct';
 import MyCart from './components/MyCart';
 import Login from './components/Login';
-import AvailableBrandDetails from './components/AvailableBrandDetails';
+// import AvailableBrandDetails from './components/AvailableBrandDetails';
 import AuthProvider from './firebase/AuthProvider';
 import Register from './components/Register';
 import PrivateRoute from './components/PrivateRoute';
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
     
       {
         path:'/details/:_id',
-        element:<ProductDetails></ProductDetails>,
+        element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
         loader:() => fetch(`http://localhost:5000/product`),
       },
       {
@@ -48,6 +48,7 @@ const router = createBrowserRouter([
       {
         path: '/myCart',
         element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/myCart'),
       },
       {
         path: '/login',
@@ -57,10 +58,10 @@ const router = createBrowserRouter([
         path:'/register',
         element:<Register></Register>,
       },
-      {
-        path: '/home/:id',
-        element: <PrivateRoute><AvailableBrandDetails></AvailableBrandDetails></PrivateRoute>,
-      },
+      // {
+      //   path: '/home/:id',
+      //   element: <PrivateRoute><AvailableBrandDetails></AvailableBrandDetails></PrivateRoute>,
+      // },
       {
         path:'/update/:id',
         element:<Update></Update>,
