@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../firebase/AuthProvider";
 
 const Navbar = () => {
-    const { user, logOut, loading } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleSignOut = () => {
         logOut()
@@ -37,7 +37,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <img className="w-28 mt-0" src="https://i.postimg.cc/pTvRMTNL/Logo02-removebgcroped02.png" alt="" />
+                <img className="w-28 mt-0 invisible md:visible" src="https://i.postimg.cc/pTvRMTNL/Logo02-removebgcroped02.png" alt="" />
             </div>
             <div className="navbar-center hidden lg:flex justify-end items-center">
                 <ul className="menu menu-horizontal px-1">

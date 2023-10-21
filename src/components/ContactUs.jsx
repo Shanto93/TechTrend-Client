@@ -9,7 +9,7 @@ const ContactUs = () => {
             <h2 className="text-4xl font-bold text-center mt-10 mb-7">Contact Us</h2>
             <div className="md:flex justify-between">
                 {/* first cart */}
-                <div className="card w-60 shadow-xl bg-yellow-600">
+                <div className="card md:w-60 shadow-xl bg-yellow-600">
                     <div className="card-body items-center text-center">
                         <p className='text-4xl text-white'><HiOutlineMailOpen></HiOutlineMailOpen></p>
                         <h2 className="card-title text-white">Email</h2>
@@ -17,7 +17,7 @@ const ContactUs = () => {
                     </div>
                 </div>
                 {/* second cart */}
-                <div className="card w-60 shadow-xl bg-amber-800">
+                <div className="card md:w-60 shadow-xl bg-amber-800">
                     <div className="card-body items-center text-center">
                     <p className='text-4xl text-white'><BiMobile></BiMobile></p>
                         <h2 className="card-title text-white">Mobile</h2>
@@ -25,14 +25,14 @@ const ContactUs = () => {
                     </div>
                 </div>
                 {/* third cart */}
-                <div className="card w-60 shadow-xl bg-lime-600">
+                <div className="card md:w-60 shadow-xl bg-lime-600">
                     <div className="card-body items-center text-center">
                         <p className='text-4xl text-white'><ImLocation></ImLocation></p>
                         <h2 className="card-title text-white">Office Location</h2>
                         <p className="text-white">Hathazari,Chittagong</p>
                     </div>
                 </div>
-                <div className="card w-60 shadow-xl bg-red-600">
+                <div className="card md:w-60 shadow-xl bg-red-600">
                     <div className="card-body items-center text-center">
                         <p className='text-4xl text-white'><FaFax></FaFax></p>
                         <h2 className="card-title text-white">Fax</h2>

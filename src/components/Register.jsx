@@ -16,11 +16,11 @@ const Register = () => {
         console.log(name, password);
 
         // eslint-disable-next-line no-constant-condition
-        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+        if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Z\d@$!%*#?&]{8,}$/.test(password)) {
             return Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Minimum eight characters, at least one letter and one number',
+                text: 'Minimum six characters, at least one capital letter and one special character',
                 footer: '<a href="">Why do I have this issue?</a>'
             })
         }
